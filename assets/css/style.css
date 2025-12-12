@@ -7,6 +7,10 @@ body {
     font-size: 16px;
 }
 
+*{
+    scrollbar-width: thin;
+}
+
 .d-table {
     width: 100%;
     height: 100%;
@@ -8735,4 +8739,91 @@ Buy Now Btn
 
 .harvesting-image > img{
     border-radius: 20px 20px 0 0;
+}
+
+/* Product Details Card */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+/* Popup */
+.product-details-window {
+    background: white;
+    padding: 20px;
+    width: 320px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    animation: fadeIn 0.25s ease;
+    display: flex;
+    width: calc(100% - 10px);
+    max-width: 800px;
+    max-height: calc(100% - 10px);
+    position: absolute;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.product-details-window img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.product-details-window h2 {
+    margin-top: 15px;
+    font-size: 20px;
+}
+
+.product-details-window p {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #555;
+}
+
+.close-btn {
+    margin-top: 15px;
+    width: 100%;
+    padding: 10px;
+    background: #209e2e;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.product-details{
+    overflow-y: auto;
+}
+
+.cross-btn{
+    background-color: transparent;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    font-size: 12px;
+    border: none;
+    color: #ffbaba;
+}
+
+.cross-btn:hover{
+    color: #ff6565;
+}
+
+@media only screen and (max-width: 560px) {
+    .product-details-window{
+        flex-direction: column;
+        overflow: auto;
+    }
 }
