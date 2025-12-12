@@ -428,7 +428,7 @@ function setTheme(themeName) {
 // function to display product details
 function viewProductDetails(imgSrc, heading, detailsHtml) {
     $("body").append(`
-        <div class="overlay" id="productDetailsWindow">
+        <div class="overlay" id="productDetailsWindow" onclick="closeProductDetailsWindow()">
             <div class="product-details-window">
                 <div style="flex: 1;">
                     <img src="${imgSrc}" alt="Product Image" style="width:100%; border-radius:10px;" />
