@@ -414,11 +414,6 @@ jQuery(function($) {
         }, 0);
     });
 
-    // Preloader
-    jQuery(window).on('load', function() {
-        $('.preloader').fadeOut();
-    });
-
     // Switch Btn
     // $('body').append("<div class='switch-box'><label id='switch' class='switch'><input type='checkbox' onchange='toggleTheme()' id='slider'><span class='slider round'></span></label></div>");
 
@@ -429,3 +424,35 @@ function setTheme(themeName) {
     localStorage.setItem('trifles_theme', themeName);
     document.documentElement.className = themeName;
 }
+
+// function to display product details
+function viewProductDetails(imgSrc, heading, detailsHtml) {
+    $("body").append(`
+        <div class="overlay" id="productDetailsWindow">
+            <div class="product-details-window">
+                <div style="flex: 1;">
+                    <img src="${imgSrc}" alt="Product Image" style="width:100%; border-radius:10px;" />
+                </div>
+                <div style="flex: 1; display: flex; flex-direction: column;">
+                    <h2>${heading}</h2>
+                    <div class="product-details">${detailsHtml}</div>
+                    <button class="close-btn" onclick="closeProductDetailsWindow()" style="margin-top: auto;">
+                        Close
+                    </button>
+                    <button class="cross-btn" onclick="closeProductDetailsWindow()">
+                        <i class="fa fa-close"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    `);
+}
+
+function closeProductDetailsWindow() {
+    $("#productDetailsWindow").remove();
+}
+
+// Preloader
+jQuery(window).on('load', function() {
+    $('.preloader').fadeOut();
+});
